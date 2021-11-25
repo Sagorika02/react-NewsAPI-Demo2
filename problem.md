@@ -1,4 +1,4 @@
-# Assignmet 2
+# Assignment 2
 
 ## Objective:
 The Objective of this application is to understand Forms, Authentication Security and Routing using React

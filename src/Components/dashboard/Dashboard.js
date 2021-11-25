@@ -1,43 +1,27 @@
-import Card from "../card/Card";
+import React, { useEffect, useState } from 'react'
+import Card from '../card/Card';
 
-import React, { useState, useEffect } from "react";
 
-const Dashboard = () => {
-  
+export default function DisplayCard() {
+    // Fetching data from api
     const [news, setNews] = useState([]);
     useEffect(() => {
-           fetch('http://localhost:3001/api/v1/news',
-    {
-      headers:{
-            'Authorization' : `Bearer ${localStorage.getItem('token')}`
-        }
-    })     .then(res => res.json())
-            .then((data1) => setNews(data1));
-    }, [])
-
-    const AddNewsFunction = (addnews) => {
-        fetch('http://localhost:3002/News', {
-            method: 'POST',
+        fetch('http://localhost:3001/api/v1/news', {
             headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(addnews)
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
         })
-        setNews([...news, addnews]);
-    }
+            .then(res => res.json())
+            .then(data => setNews(data))
+    }, [])
+   
 
-    return (<div><h2>Trending News</h2>
-             <div data-testid="outerdiv" className="container">
-                <div data-testid="innerdiv" className="row">
-                
-                    {
-                       news.map(item => <Card AddFunction={AddNewsFunction} title={item.title}  author={item.author} description={item.description} />)
-                    }
-                
-                </div>
-            </div>
-      </div>
+    return (
+        <div>             
+            <h2 id="heading" data-testid="ancestor" style={{ textAlign: 'center' }} className="mt-3"><u data-testid="descendant">Daily Live News Feed</u></h2>
+            {
+                news.map(data => <Card id={data.id} image={data.urlToImage}  title={data.title} author={data.author} />)
+            }       
+        </div>
     )
-};
-
-export default Dashboard;
+}

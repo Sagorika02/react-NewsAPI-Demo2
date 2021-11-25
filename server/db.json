@@ -73,6 +73,29 @@
       "title": "The Shapeshifting Relationship Between Science and Religion - The Wire",
       "description": "Religion in different forms has largely co-existed with science, with both domains contributing equally to our worldview.",
       "id": 7
+    },
+    {
+      "image": "https://cdn.thewire.in/wp-content/uploads/2019/11/27130631/Screenshot-2019-11-27-at-1.04.38-PM-800x400.png",
+      "title": "The Shapeshifting Relationship Between Science and Religion - The Wire",
+      "author": null,
+      "id": 10
+    },
+    {
+      "news": {
+        "source": {
+          "id": null,
+          "name": "Oup.com"
+        },
+        "author": null,
+        "title": "Constraining the Epoch of reionization with highly dispersed Fast Radio Bursts - Oxford Academic",
+        "description": "Abstract. The period in which hydrogen in the intergalactic medium (IGM) is ionized, known as the Epoch of Reionization (EoR), is still poorly understood. The t",
+        "url": "https://academic.oup.com/mnras/advance-article-abstract/doi/10.1093/mnras/stab1438/6280991",
+        "urlToImage": "//oup.silverchair-cdn.com/UI/app/img/generic-cover.png",
+        "publishedAt": "2021-05-22T12:36:26Z",
+        "content": "The period in which hydrogen in the intergalactic medium (IGM) is ionized, known as the Epoch of Reionization (EoR), is still poorly understood. The timing and duration of the EoR is expected to be g… [+1338 chars]"
+      },
+      "disableButton": true,
+      "id": 11
     }
   ]
 }

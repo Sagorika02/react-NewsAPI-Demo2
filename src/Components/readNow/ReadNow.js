@@ -1,29 +1,32 @@
-import DisplayCard from '../displayCard/DisplayCard'
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react'
 
-const ReadNow = () => {
-  
-    const [news, setNews] = useState([]);
+export default function ReadNow() {
+
+    // Fetching data from db.json
+    const [read, setRead] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:3002/News')
+        fetch(' http://localhost:3002/news')
             .then(res => res.json())
-            .then((data) => setNews(data));
-    }, [])
+            .then(data => setRead(data))
+    }, []);
 
-   
-    return (<div>
-                <h2>ReadNow</h2>
-             <div data-testid="outerdiv" className="container">
-                <div data-testid="innerdiv" className="row">
-                
+    return (
+        <div className="readnow">
+            <div data-testid="value" className="container">
+                <div data-testid="rowClass" className="row">
                     {
-                       news.map(item => <DisplayCard  title={item.title}  author={item.author} description={item.description} />)
+                        read.map(item => <div key={item.id} className="col-md-4 mt-3">
+                            <div className="card" style={{ width: "18rem" }}>
+                                <img src={item?item.urlToImage:''} className="card-img-top" alt="Not Avaiable" />
+                                <div className="card-body">
+                                    <h5 className="card-title">{item?item.title:''}</h5>
+                                    <p className="card-text">{item?item.description:''}</p>
+                                </div>
+                            </div>
+                        </div>)
                     }
-                
                 </div>
             </div>
-      </div>
+        </div>
     )
-};
-
-export default ReadNow;
+}
